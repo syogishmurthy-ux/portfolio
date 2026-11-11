@@ -17,7 +17,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e8b46a' text-anchor='middle'%3EYM%3C/text%3E%3C/svg%3E">
 <title>Yogish Murthy S · Data Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* Tokens: charcoal base, warm amber for what matters, status colors only for reconciliation */
 :root{
@@ -52,8 +52,8 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 .hero{position:relative;padding-block:84px 72px}
 .hero::before{content:"";position:absolute;inset:-120px 0 auto;height:520px;background:radial-gradient(600px 300px at 70% 30%,rgba(232,180,106,.10),transparent 70%);pointer-events:none}
 .eyebrow{font:500 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--warm)}
-h1{font:400 clamp(54px,9vw,116px)/.92 var(--display);color:var(--ink);margin:18px 0 0;letter-spacing:-.02em}
-h1 em{font-style:italic;color:var(--warm)}
+h1{font:700 clamp(46px,8.4vw,104px)/.95 var(--body);color:var(--ink);margin:0;letter-spacing:-.035em}
+.tagline{margin:14px 0 0;font:italic 400 clamp(30px,4.6vw,52px)/1.1 var(--display);color:var(--warm)}
 .intro{max-width:56ch;margin:26px 0 0;font-size:19px;line-height:1.6}
 .intro b{color:var(--ink);font-weight:500}
 .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
@@ -181,8 +181,8 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
-  <div class="eyebrow rise">Yogish Murthy S · Data Engineer · Bengaluru</div>
-  <h1 class="rise d1">Data that<br><em>arrives intact.</em></h1>
+  <h1 class="rise">Yogish Murthy S</h1>
+  <p class="tagline rise d1">Data that arrives intact.</p>
   <p class="intro rise d2"><b>Data Engineer at Tredence.</b> I build PySpark and Spark pipelines that move large datasets between platforms, then prove every record made it across. 5+ years in energy, telecom, healthcare and supply chain. One habit: check the data, not just the job status.</p>
   <div class="cta rise d3">
     <a class="btn solid" href="#case">Read the case study</a>
@@ -225,7 +225,7 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:
     <div class="card">
       <div class="k">The problem</div>
       <h3>Counts lie</h3>
-      <p>~10M product-attribute records with 100+ attributes. Matching row counts says nothing about whether a price, a unit or a category came across correctly. Manual checks took days and still covered only a sample.</p>
+      <p>~10M product-attribute records with 100+ attributes. Matching row counts says nothing about whether a price, a unit or a category came across correctly. Manual checks took days.</p>
     </div>
     <div class="card">
       <div class="k">The approach</div>
@@ -308,7 +308,7 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:
     <div class="card">
       <div class="k">Personal · Dec 2025 – Jan 2026</div>
       <h3>Jarvis</h3>
-      <p>A hands-free AI voice assistant for my phone, with its own task scheduler. Built for myself, now retired.</p>
+      <p>A hands-free AI voice assistant for my phone that answers questions and runs scheduled tasks by voice, built end to end in six weeks.</p>
       <div class="stack">ChatGPT API · Python · Scheduler</div>
     </div>
     <div class="card">
