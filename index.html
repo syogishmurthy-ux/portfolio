@@ -93,40 +93,15 @@ h2{font:400 clamp(40px,6vw,66px)/1.02 var(--display);color:var(--ink);margin:10p
 h2 em{font-style:italic;color:var(--warm)}
 .lede{margin:14px 0 0;max-width:62ch;font-size:17px}
 
-/* Reconciliation demo */
-.demo{margin-top:40px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:24px}
-.demo-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
-.legend{display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
-.legend span{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;border:1px solid var(--line)}
-.legend i{width:8px;height:8px;border-radius:50%}
-.tables{margin-top:20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
-.tbl{min-width:0}
-.tbl h3{margin:0 0 8px;font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.tbl .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
-table{width:100%;border-collapse:collapse;font:400 13px var(--mono);min-width:330px}
-th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
-th{color:var(--muted);font-weight:500;background:var(--panel2)}
-tr:last-child td{border-bottom:0}
-td{color:var(--soft);transition:background .35s,color .35s}
-tr.ok td{background:var(--ok-soft)}
-tr.bad td{background:var(--bad-soft)}
-tr.miss td{background:var(--miss-soft)}
-tr.dup td{background:var(--dup-soft)}
-td.diff{color:#1a1206;background:var(--warm)!important;font-weight:500}
-tr.ghost td{color:var(--muted);font-style:italic}
-.result{margin-top:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.result>div{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.result .n{font:400 30px/1 var(--display);color:var(--ink)}
-.result .t{font-size:12px;color:var(--muted);margin-top:4px}
-.note{margin-top:14px;font-size:13px;color:var(--muted)}
-
-/* Case study */
-.case{margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+/* Cards */
 .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px;min-width:0}
-.card.wide{grid-column:1/-1}
 .card .k{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--warm)}
 .card h3{margin:10px 0 8px;font:400 30px/1.1 var(--display);color:var(--ink)}
 .card p{margin:0;font-size:15px}
+
+/* Case study */
+.case{margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.card.wide{grid-column:1/-1}
 .steps{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px;counter-reset:s}
 .steps li{position:relative;padding-left:40px;font-size:15px;counter-increment:s}
 .steps li::before{content:counter(s);position:absolute;left:0;top:-1px;width:26px;height:26px;border-radius:50%;border:1px solid var(--warm);color:var(--warm);font:500 12px/24px var(--mono);text-align:center}
@@ -189,13 +164,12 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:
   .hero{padding-block:56px}
   section{padding-block:68px}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .tables,.case,.wall,.side{grid-template-columns:minmax(0,1fr)}
-  .result{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .case,.wall,.side{grid-template-columns:minmax(0,1fr)}
   .job{padding-left:34px}
   .timeline::before{left:7px}
   .job::before{left:0}
   .job .card{grid-template-columns:minmax(0,1fr);gap:16px}
-  .card,.demo{padding:20px}
+  .card{padding:20px}
 }
 </style>
 </head>
@@ -203,7 +177,7 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:
 
 <nav><div class="wrap">
   <a class="mark" href="#top" aria-label="Back to top">YM</a>
-  <div class="links"><a href="#demo">Try it</a><a href="#case">Case study</a><a href="#experience">Experience</a><a href="#tools">Tools</a><a href="#contact">Contact</a></div>
+  <div class="links"><a href="#case">Case study</a><a href="#experience">Experience</a><a href="#tools">Tools</a><a href="#contact">Contact</a></div>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
@@ -211,8 +185,8 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:
   <h1 class="rise d1">Data that<br><em>arrives intact.</em></h1>
   <p class="intro rise d2"><b>Data Engineer at Tredence.</b> I build PySpark and Spark pipelines that move large datasets between platforms, then prove every record made it across. 5+ years in energy, telecom, healthcare and supply chain. One habit: check the data, not just the job status.</p>
   <div class="cta rise d3">
-    <a class="btn solid" href="#demo">See reconciliation in action</a>
-    <a class="btn" href="#case">Read the case study</a>
+    <a class="btn solid" href="#case">Read the case study</a>
+    <a class="btn" href="#experience">See my experience</a>
     <a class="btn" href="#contact">Get in touch</a>
   </div>
 
@@ -243,37 +217,6 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:
 </div></header>
 
 <main>
-<section id="demo"><div class="wrap">
-  <div class="eyebrow">Try it</div>
-  <h2>Row counts match. <em>Is the data right?</em></h2>
-  <p class="lede">Both tables have 8 rows, so a count check says everything is fine. Run the same field-by-field reconciliation I build in PySpark and see what a count check misses.</p>
-  <div class="demo">
-    <div class="demo-bar">
-      <div class="legend" aria-label="Legend">
-        <span><i style="background:var(--ok)"></i>Matched</span>
-        <span><i style="background:var(--warm)"></i>Mismatch</span>
-        <span><i style="background:var(--miss)"></i>Missing</span>
-        <span><i style="background:var(--dup)"></i>Duplicate</span>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn solid" id="runBtn" type="button">▶ Run reconciliation</button>
-        <button class="btn" id="resetBtn" type="button">Reset</button>
-      </div>
-    </div>
-    <div class="tables">
-      <div class="tbl"><h3>Source · MongoDB</h3><div class="scroll"><table id="src"></table></div></div>
-      <div class="tbl"><h3>Target · new platform</h3><div class="scroll"><table id="tgt"></table></div></div>
-    </div>
-    <div class="result" aria-live="polite">
-      <div><div class="n" id="rOk">–</div><div class="t">matched</div></div>
-      <div><div class="n" id="rBad">–</div><div class="t">attribute mismatches</div></div>
-      <div><div class="n" id="rMiss">–</div><div class="t">missing in target</div></div>
-      <div><div class="n" id="rDup">–</div><div class="t">duplicate keys</div></div>
-    </div>
-    <p class="note">Sample data made up for this demo. The real pipeline does this for ~10M records and 100+ attributes in Databricks.</p>
-  </div>
-</div></section>
-
 <section id="case"><div class="wrap">
   <div class="eyebrow">Case study · Tredence · 2026</div>
   <h2>Retiring a legacy store <em>without guessing.</em></h2>
@@ -297,7 +240,7 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:
     <div class="card wide">
       <div class="k">The result</div>
       <div class="big">
-        <div><div class="n">~10M</div><div class="t">records reconciled</div></div>
+        <div><div class="n">~10M</div><div class="t">records validated</div></div>
         <div><div class="n">100+</div><div class="t">attributes per record</div></div>
         <div><div class="n">Days → hours</div><div class="t">validation time</div></div>
       </div>
@@ -396,58 +339,6 @@ footer{padding-block:36px;border-top:1px solid var(--line);font-size:13px;color:
 <footer><div class="wrap">Yogish Murthy S · Bengaluru, India · © 2026</div></footer>
 
 <script>
-// Demo data: same 8-row count on both sides, with planted differences for the reconciliation to find
-var SRC=[["P-1001","Steel bolt M8","PCS","4.20"],["P-1002","Copper wire 2mm","M","1.85"],["P-1003","LED panel 40W","PCS","29.00"],["P-1004","PVC pipe 1in","M","2.10"],["P-1005","Drill bit 6mm","PCS","3.75"],["P-1006","Cable tie 200mm","PCS","0.12"],["P-1007","Wall plug 8mm","PCS","0.09"],["P-1008","Safety gloves L","PAIR","5.40"]];
-var TGT=[["P-1001","Steel bolt M8","PCS","4.20"],["P-1002","Copper wire 2mm","KG","1.85"],["P-1003","LED panel 40W","PCS","29.00"],["P-1004","PVC pipe 1in","M","2.10"],["P-1005","Drill bit 6mm","PCS","3.57"],["P-1006","Cable tie 200mm","PCS","0.12"],["P-1006","Cable tie 200mm","PCS","0.12"],["P-1008","Safety gloves L","PAIR","5.40"]];
-var HEAD=["sku","name","uom","price"];
-var timers=[];
-
-// Render a table from rows
-function draw(id,rows){
-  var h='<thead><tr>'+HEAD.map(function(c){return'<th>'+c+'</th>'}).join('')+'</tr></thead><tbody>';
-  rows.forEach(function(r){h+='<tr>'+r.map(function(c){return'<td>'+c+'</td>'}).join('')+'</tr>'});
-  document.getElementById(id).innerHTML=h+'</tbody>';
-}
-function reset(){
-  timers.forEach(clearTimeout);timers=[];
-  draw('src',SRC);draw('tgt',TGT);
-  ['rOk','rBad','rMiss','rDup'].forEach(function(i){document.getElementById(i).textContent='–'});
-  document.getElementById('runBtn').disabled=false;
-}
-
-// Reconcile: flag duplicate keys in target, then join each source row on sku and compare every field
-function run(){
-  document.getElementById('runBtn').disabled=true;
-  var sRows=document.querySelectorAll('#src tbody tr'),tRows=document.querySelectorAll('#tgt tbody tr');
-  var first={},c={ok:0,bad:0,miss:0,dup:0};
-  TGT.forEach(function(r,i){if(r[0] in first){tRows[i].className='dup';c.dup++;}else first[r[0]]=i;});
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function show(){
-    document.getElementById('rOk').textContent=c.ok;document.getElementById('rBad').textContent=c.bad;
-    document.getElementById('rMiss').textContent=c.miss;document.getElementById('rDup').textContent=c.dup;
-  }
-  SRC.forEach(function(r,i){
-    timers.push(setTimeout(function(){
-      var ti=first[r[0]];
-      if(ti===undefined){
-        sRows[i].className='miss';c.miss++;
-        var g=document.createElement('tr');g.className='ghost miss';
-        g.innerHTML='<td>'+r[0]+'</td><td colspan="3">not found in target</td>';
-        document.querySelector('#tgt tbody').appendChild(g);
-      }else{
-        var diff=false;
-        r.forEach(function(v,k){if(TGT[ti][k]!==v){diff=true;sRows[i].children[k].className='diff';tRows[ti].children[k].className='diff';}});
-        sRows[i].className=diff?'bad':'ok';tRows[ti].className=diff?'bad':'ok';
-        if(diff)c.bad++;else c.ok++;
-      }
-      show();
-    },reduce?0:i*260));
-  });
-}
-reset();
-document.getElementById('runBtn').addEventListener('click',run);
-document.getElementById('resetBtn').addEventListener('click',reset);
-
 // Copy email, falling back to selecting the address
 document.getElementById('copyBtn').addEventListener('click',function(){
   var el=document.getElementById('email'),msg=document.getElementById('copyMsg'),txt=el.textContent.trim();
