@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Yogish Murthy S, Senior Data Engineer. Data migration, reconciliation and pipelines on PySpark, Databricks, Snowflake and Azure.">
+<title>Yogish Murthy S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one dark editorial column, read top to bottom like chapters. Warm ink on charcoal; amber marks numbers and what matters most. */
+:root{
+  --bg:#0b0b0c; --panel:#141416; --line:#26262a; --ink:#ede6da; --soft:#c9c2b6; --muted:#8c867c;
+  --warm:#e8b46a; --warm-soft:rgba(232,180,106,.12);
+  --display:"Instrument Serif","Times New Roman",Georgia,serif;
+  --body:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;
+  --mono:"JetBrains Mono",Consolas,"DejaVu Sans Mono",monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--soft);font:16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--warm);outline-offset:3px;border-radius:6px}
+::selection{background:var(--warm);color:#1a1206}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* Top bar */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(11,11,12,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mono-mark{font:400 26px/1 var(--display);color:var(--ink);text-decoration:none}
+.links{display:flex;gap:24px;font-size:14px}
+.links a{color:var(--muted);text-decoration:none}
+.links a:hover{color:var(--ink)}
+
+/* Hero */
+.hero{padding-block:110px 90px;text-align:center}
+.kicker{font-size:15px;color:var(--muted)}
+h1{font:400 clamp(52px,10vw,112px)/.95 var(--display);color:var(--ink);margin:18px 0 0;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:italic}
+.intro{max-width:46ch;margin:28px auto 0;font-size:19px;line-height:1.6;color:var(--soft)}
+.intro b{color:var(--ink);font-weight:500}
+.hint{margin-top:22px;font-size:14px;color:var(--muted)}
+.cta{margin-top:34px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:500 15px var(--body);padding:12px 20px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s}
+.btn:hover{border-color:var(--warm)}
+.btn.solid{background:var(--ink);color:#0b0b0c;border-color:var(--ink)}
+.btn.solid:hover{background:#fff}
+
+/* Sections */
+section{padding-block:90px;border-top:1px solid var(--line)}
+h2{font:400 clamp(42px,6vw,64px)/1 var(--display);color:var(--ink);margin:0;letter-spacing:-.01em}
+.lede{margin:14px 0 0;max-width:58ch;font-size:17px;color:var(--soft)}
+.lede .w{color:var(--warm)}
+
+/* Experience chapters */
+.chapters{margin-top:48px;display:grid;gap:20px}
+.ch{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:32px}
+.ch.now{border-color:rgba(232,180,106,.45)}
+.ch .tagline{font:italic 400 22px/1.2 var(--display);color:var(--warm)}
+.ch h3{font:400 38px/1.05 var(--display);color:var(--ink);margin:10px 0 0}
+.ch .title{margin-top:8px;font-size:15px;color:var(--soft)}
+.ch .when{margin-top:6px;font:500 12px var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.nums{display:flex;flex-wrap:wrap;gap:24px 36px;margin-bottom:18px}
+.nums div{min-width:0}
+.nums .n{font:400 40px/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.nums .t{font-size:13px;color:var(--muted);margin-top:4px}
+.ch ul{margin:0;padding-left:18px}
+.ch li{margin-bottom:8px;font-size:15px}
+.ch li::marker{color:var(--warm)}
+
+/* Tool wall */
+.wall{margin-top:44px;display:grid;gap:26px}
+.row h3{margin:0 0 12px;font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:14px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);color:var(--soft)}
+.chips span.hot{border-color:rgba(232,180,106,.6);background:var(--warm-soft);color:var(--warm);font-weight:500}
+
+/* Workshop */
+.work{margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.proj{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.proj.wide{grid-column:1/-1}
+.proj .meta{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.proj h3{margin:0;font:400 32px/1.05 var(--display);color:var(--ink)}
+.proj p{margin:0;font-size:15px}
+.proj .stack{margin-top:auto;padding-top:8px;font:500 12px var(--mono);color:var(--warm)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px;font:500 12px var(--mono)}
+.flow span{padding:6px 10px;border:1px solid var(--line);border-radius:8px;color:var(--soft)}
+.flow i{font-style:normal;color:var(--warm)}
+
+/* Education */
+.edu{margin-top:36px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;padding-block:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.edu b{font:400 28px/1.1 var(--display);color:var(--ink);font-weight:400}
+.edu p{margin:4px 0 0;font-size:15px}
+.edu .when{font:500 12px var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+
+/* Contact */
+.contact{text-align:center}
+.contact .lede{margin-inline:auto}
+.mailrow{margin-top:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.addr{font:500 15px var(--mono);border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:12px 20px;user-select:all;word-break:break-all}
+#copyMsg{margin-top:12px;font-size:14px;color:var(--muted);min-height:1.5em}
+.quote{margin:80px auto 0;max-width:30ch}
+.quote .lbl{font-size:13px;color:var(--muted)}
+.quote blockquote{margin:10px 0 0;font:italic 400 clamp(28px,4vw,40px)/1.2 var(--display);color:var(--ink)}
+.quote cite{display:block;margin-top:12px;font-style:normal;font-size:14px;color:var(--muted)}
+footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);text-align:center}
+
+/* Gentle load-in, visible at rest */
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .d1{animation-delay:.1s}.d2{animation-delay:.2s}.d3{animation-delay:.3s}
+  @keyframes rise{from{transform:translateY(16px);opacity:.01}to{transform:none;opacity:1}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+@media (max-width:760px){
+  .links{display:none}
+  .hero{padding-block:72px 64px}
+  section{padding-block:64px}
+  .ch{grid-template-columns:minmax(0,1fr);gap:20px;padding:24px}
+  .work{grid-template-columns:minmax(0,1fr)}
+  .proj{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="mono-mark" href="#top" aria-label="Back to top">YM</a>
+  <div class="links"><a href="#experience">Experience</a><a href="#tools">Tools</a><a href="#work">Work</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div class="kicker rise">Yogish Murthy S</div>
+  <h1 class="rise d1">Data that <em>arrives intact</em></h1>
+  <p class="intro rise d2"><b>Senior Data Engineer</b> and Associate Manager at Tredence. I build pipelines that move large datasets between platforms, then prove every attribute made it across. Five years, four industries, one habit: check the data, not just the job status.</p>
+  <div class="cta rise d3">
+    <a class="btn solid" href="#contact">Get in touch</a>
+    <a class="btn" href="#experience">Read the chapters</a>
+  </div>
+</div></header>
+
+<main>
+<section id="experience"><div class="wrap">
+  <h2>The chapters</h2>
+  <p class="lede">Experience in order, oldest first. Each engagement taught me one thing I still use every day.</p>
+  <div class="chapters">
+
+    <article class="ch">
+      <div>
+        <div class="tagline">Where it started.</div>
+        <h3>Energy &amp; logistics</h3>
+        <div class="title">Python Developer · YDI, for a global energy client</div>
+        <div class="when">Apr 2021 – Apr 2023</div>
+      </div>
+      <div>
+        <div class="nums"><div><div class="n">10M+</div><div class="t">channels of logistics data</div></div><div><div class="n">2 yrs</div><div class="t">building in Python</div></div></div>
+        <ul>
+          <li>Built Python APIs serving global logistics data to downstream teams.</li>
+          <li>Wrote Pandas processing to clean, join and shape the data behind those APIs.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="ch">
+      <div>
+        <div class="tagline">Learning to scale.</div>
+        <h3>Telecom billing</h3>
+        <div class="title">Data Engineer · YDI, for a telecom client</div>
+        <div class="when">2023 – 2024</div>
+      </div>
+      <div>
+        <div class="nums"><div><div class="n">5</div><div class="t">billing source systems</div></div><div><div class="n">1</div><div class="t">orchestrated platform on Azure</div></div></div>
+        <ul>
+          <li>Built Spark pipelines that ingest billing data from five source systems into Azure.</li>
+          <li>Scheduled and monitored every pipeline in Apache Airflow.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="ch">
+      <div>
+        <div class="tagline">Handle with care.</div>
+        <h3>Healthcare data</h3>
+        <div class="title">Senior Data Engineer · YDI, for a healthcare client</div>
+        <div class="when">2024 – Dec 2025</div>
+      </div>
+      <div>
+        <div class="nums"><div><div class="n">Snowflake</div><div class="t">transformation layer</div></div><div><div class="n">Azure</div><div class="t">cloud platform</div></div></div>
+        <ul>
+          <li>Transformed highly sensitive healthcare customer data in Snowflake.</li>
+          <li>Kept confidential fields protected through every step of the transformation.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="ch now">
+      <div>
+        <div class="tagline">The current chapter.</div>
+        <h3>Supply chain migration</h3>
+        <div class="title">Associate Manager · Tredence</div>
+        <div class="when">Feb 2026 – Present</div>
+      </div>
+      <div>
+        <div class="nums"><div><div class="n">~10M</div><div class="t">records in scope</div></div><div><div class="n">Every</div><div class="t">attribute checked, source to target</div></div></div>
+        <ul>
+          <li>Migrating master data from a legacy MongoDB store to a new data platform.</li>
+          <li>Building PySpark reconciliation pipelines in Databricks that flag missing values, mismatches and duplicates between source and target.</li>
+          <li>Writing requirement documents and getting stakeholder sign-off before the build starts.</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+</div></section>
+
+<section id="tools"><div class="wrap">
+  <h2>The tool wall</h2>
+  <p class="lede">Everything I reach for, in one place. <span class="w">The warm ones</span> are what I use most: Python, SQL, PySpark and Databricks.</p>
+  <div class="wall">
+    <div class="row"><h3>Languages &amp; processing</h3><div class="chips"><span class="hot">Python</span><span class="hot">SQL</span><span class="hot">PySpark</span><span>Apache Spark</span><span>Pandas</span></div></div>
+    <div class="row"><h3>Platforms &amp; storage</h3><div class="chips"><span class="hot">Databricks</span><span>Snowflake</span><span>Microsoft Azure</span><span>MongoDB</span></div></div>
+    <div class="row"><h3>Orchestration &amp; integration</h3><div class="chips"><span>Apache Airflow</span><span>REST APIs</span></div></div>
+    <div class="row"><h3>Practices</h3><div class="chips"><span class="hot">Data migration</span><span class="hot">Data validation</span><span>Data quality</span><span>ETL / ELT</span><span>Batch processing</span><span>Data modeling</span><span>Data warehousing</span></div></div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <h2>The workshop</h2>
+  <p class="lede">Work I'm proud of, at the job and on my own time. Client names stay private.</p>
+  <div class="work">
+    <article class="proj wide">
+      <div class="meta">Tredence · 2026</div>
+      <h3>Migration you can sign off on</h3>
+      <p>Row counts matching is where most migrations stop checking. Here every record is joined source to target on its key, compared field by field, and labelled as matched, mismatched, missing or duplicated, so sign-off rests on evidence.</p>
+      <div class="flow" aria-label="Pipeline stages"><span>MongoDB</span><i>→</i><span>PySpark extract</span><i>→</i><span>Attribute checks</span><i>→</i><span>Mismatch report</span><i>→</i><span>Validated target</span></div>
+      <div class="stack">PySpark · Databricks · SQL · MongoDB</div>
+    </article>
+    <article class="proj">
+      <div class="meta">YDI · 2023 – 2024</div>
+      <h3>Five sources, one billing view</h3>
+      <p>Spark ingestion that brings a telecom client's billing data from five systems into Azure, on a schedule Airflow keeps honest.</p>
+      <div class="stack">Spark · Airflow · Azure</div>
+    </article>
+    <article class="proj">
+      <div class="meta">Personal · Dec 2025 – Jan 2026</div>
+      <h3>Jarvis</h3>
+      <p>A hands-free AI voice assistant for my phone, with its own task scheduler. Built for myself, now retired.</p>
+      <div class="stack">ChatGPT API · Python · Scheduler</div>
+    </article>
+  </div>
+  <div class="edu">
+    <div><b>Anna University</b><p>B.E. Electronics and Communication Engineering · First class</p></div>
+    <div class="when">2017 – 2021</div>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let's talk data</h2>
+  <p class="lede">Happy to talk about data engineering, large migrations and data quality. Email or LinkedIn is the fastest way to reach me.</p>
+  <div class="mailrow">
+    <span class="addr" id="email">syogishmurthy@gmail.com</span>
+    <button class="btn solid" type="button" id="copyBtn">Copy email</button>
+    <a class="btn" href="https://www.linkedin.com/in/yogish-murthy-s-a46392393/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </div>
+  <div id="copyMsg" aria-live="polite"></div>
+  <div class="quote">
+    <div class="lbl">A parting thought</div>
+    <blockquote>“In God we trust. All others must bring data.”</blockquote>
+    <cite>W. Edwards Deming</cite>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">Yogish Murthy S · Bengaluru, India · © 2026</div></footer>
+
+<script>
+// Copy email, falling back to selecting the address
+document.getElementById('copyBtn').addEventListener('click',function(){
+  var el=document.getElementById('email'),msg=document.getElementById('copyMsg'),txt=el.textContent.trim();
+  function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);msg.textContent='Address selected. Press Ctrl+C to copy.';}
+  try{navigator.clipboard.writeText(txt).then(function(){msg.textContent='Email copied.';},sel);}catch(e){sel();}
+});
+</script>
+</body>
+</html>
