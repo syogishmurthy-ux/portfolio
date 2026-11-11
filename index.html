@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Yogish Murthy S, Senior Data Engineer. Data migration, reconciliation and pipelines on PySpark, Databricks, Snowflake and Azure.">
+<meta name="description" content="Yogish Murthy S, Data Engineer. Data migration, reconciliation and pipelines on PySpark, Databricks, Snowflake and Azure.">
 <title>Yogish Murthy S</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
@@ -81,6 +81,7 @@ h2{font:400 clamp(42px,6vw,64px)/1 var(--display);color:var(--ink);margin:0;lett
 .work{margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .proj{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .proj.wide{grid-column:1/-1}
+.proj.soon{border-style:dashed;background:transparent}
 .proj .meta{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .proj h3{margin:0;font:400 32px/1.05 var(--display);color:var(--ink)}
 .proj p{margin:0;font-size:15px}
@@ -135,7 +136,7 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:
 <header class="hero" id="top"><div class="wrap">
   <div class="kicker rise">Yogish Murthy S</div>
   <h1 class="rise d1">Data that <em>arrives intact</em></h1>
-  <p class="intro rise d2"><b>Senior Data Engineer</b> and Associate Manager at Tredence. I build pipelines that move large datasets between platforms, then prove every attribute made it across. Five years, four industries, one habit: check the data, not just the job status.</p>
+  <p class="intro rise d2"><b>Data Engineer</b> at Tredence. I build PySpark and Spark pipelines that move large datasets between platforms, then prove every attribute made it across. Five years, four industries, one habit: check the data, not just the job status.</p>
   <div class="cta rise d3">
     <a class="btn solid" href="#contact">Get in touch</a>
     <a class="btn" href="#experience">Read the chapters</a>
@@ -156,10 +157,11 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:
         <div class="when">Apr 2021 – Apr 2023</div>
       </div>
       <div>
-        <div class="nums"><div><div class="n">10M+</div><div class="t">channels of logistics data</div></div><div><div class="n">2 yrs</div><div class="t">building in Python</div></div></div>
+        <div class="nums"><div><div class="n">3–4</div><div class="t">downstream teams served</div></div><div><div class="n">~1 day</div><div class="t">of manual prep automated each week</div></div></div>
         <ul>
           <li>Built Python APIs serving global logistics data to downstream teams.</li>
-          <li>Wrote Pandas processing to clean, join and shape the data behind those APIs.</li>
+          <li>Wrote Pandas processing to clean, join and shape the data behind those APIs, replacing about a day of manual preparation every week.</li>
+          <li>Designed the transforms as reusable steps, so new data feeds plugged in without rewriting the API layer.</li>
         </ul>
       </div>
     </article>
@@ -172,10 +174,11 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:
         <div class="when">2023 – 2024</div>
       </div>
       <div>
-        <div class="nums"><div><div class="n">5</div><div class="t">billing source systems</div></div><div><div class="n">1</div><div class="t">orchestrated platform on Azure</div></div></div>
+        <div class="nums"><div><div class="n">~5M</div><div class="t">billing records a day, from 5 sources</div></div><div><div class="n">~99%</div><div class="t">on-time daily runs</div></div></div>
         <ul>
           <li>Built Spark pipelines that ingest billing data from five source systems into Azure.</li>
-          <li>Scheduled and monitored every pipeline in Apache Airflow.</li>
+          <li>Scheduled and monitored every pipeline in Apache Airflow, keeping about 99% of daily runs on time.</li>
+          <li>Added retries, SLA alerts and failure notifications, so late or failed loads were caught before downstream reports used them.</li>
         </ul>
       </div>
     </article>
@@ -188,10 +191,10 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:
         <div class="when">2024 – Dec 2025</div>
       </div>
       <div>
-        <div class="nums"><div><div class="n">Snowflake</div><div class="t">transformation layer</div></div><div><div class="n">Azure</div><div class="t">cloud platform</div></div></div>
+        <div class="nums"><div><div class="n">20+</div><div class="t">Snowflake tables of sensitive data</div></div><div><div class="n">0</div><div class="t">data-exposure incidents</div></div></div>
         <ul>
-          <li>Transformed highly sensitive healthcare customer data in Snowflake.</li>
-          <li>Kept confidential fields protected through every step of the transformation.</li>
+          <li>Transformed sensitive healthcare customer data across 20+ Snowflake tables, in layered SQL from raw to cleansed to curated.</li>
+          <li>Protected confidential fields with masking and role-based access at every step, with zero data-exposure incidents.</li>
         </ul>
       </div>
     </article>
@@ -204,10 +207,11 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:
         <div class="when">Feb 2026 – Present</div>
       </div>
       <div>
-        <div class="nums"><div><div class="n">~10M</div><div class="t">records in scope</div></div><div><div class="n">Every</div><div class="t">attribute checked, source to target</div></div></div>
+        <div class="nums"><div><div class="n">~10M</div><div class="t">records reconciled</div></div><div><div class="n">100+</div><div class="t">attributes checked, source to target</div></div><div><div class="n">Days → hours</div><div class="t">validation time</div></div></div>
         <ul>
           <li>Migrating master data from a legacy MongoDB store to a new data platform.</li>
-          <li>Building PySpark reconciliation pipelines in Databricks that flag missing values, mismatches and duplicates between source and target.</li>
+          <li>Building PySpark reconciliation pipelines in Databricks that join ~10M records on their keys and compare 100+ attributes field by field, flagging missing values, mismatches and duplicates.</li>
+          <li>Cut validation from days of manual checks to hours, with checks that re-run on every load.</li>
           <li>Writing requirement documents and getting stakeholder sign-off before the build starts.</li>
         </ul>
       </div>
@@ -223,6 +227,7 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:
     <div class="row"><h3>Languages &amp; processing</h3><div class="chips"><span class="hot">Python</span><span class="hot">SQL</span><span class="hot">PySpark</span><span>Apache Spark</span><span>Pandas</span></div></div>
     <div class="row"><h3>Platforms &amp; storage</h3><div class="chips"><span class="hot">Databricks</span><span>Snowflake</span><span>Microsoft Azure</span><span>MongoDB</span></div></div>
     <div class="row"><h3>Orchestration &amp; integration</h3><div class="chips"><span>Apache Airflow</span><span>REST APIs</span></div></div>
+    <div class="row"><h3>Currently building on</h3><div class="chips"><span>Google Cloud</span><span>BigQuery</span><span>Dataflow</span><span>Cloud Storage</span></div></div>
     <div class="row"><h3>Practices</h3><div class="chips"><span class="hot">Data migration</span><span class="hot">Data validation</span><span>Data quality</span><span>ETL / ELT</span><span>Batch processing</span><span>Data modeling</span><span>Data warehousing</span></div></div>
   </div>
 </div></section>
@@ -249,6 +254,12 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-size:13px;color:
       <h3>Jarvis</h3>
       <p>A hands-free AI voice assistant for my phone, with its own task scheduler. Built for myself, now retired.</p>
       <div class="stack">ChatGPT API · Python · Scheduler</div>
+    </article>
+    <article class="proj wide soon">
+      <div class="meta">Open source · Coming Jan 2027</div>
+      <h3>Public projects on Google Cloud</h3>
+      <p>End-to-end pipelines on BigQuery and Dataflow, with code, design notes and the tradeoffs behind each choice. Repositories go live here soon.</p>
+      <div class="stack">GCP · BigQuery · Dataflow · Python</div>
     </article>
   </div>
   <div class="edu">
